@@ -1,0 +1,29 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Second number" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Second number
+    </h1>
+
+    <form method="post" action="/two">
+      {{ govukInput({
+        label: { text: "What is the second number you want to add?" },
+        classes: "govuk-input--width-5",
+        id: "second-number",
+        name: "second-number",
+        prefix: { text: data['first-number'] + " +" }
+      }) }}
+
+      {{ govukButton({ text: "Continue" }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

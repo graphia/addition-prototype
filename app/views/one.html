@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="First number" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      First number
+    </h1>
+
+    <form method="post" action="/one">
+      <!-- note that the name value below, 'first-number' matches the
+        request.session.data['first-number'] in app/routes.js, we can
+        build up our list of values as we go. Any input within a submitted
+        form will automatically have its value saved to the data object -->
+      {{ govukInput({
+        label: { text: "What is the first number you want to add?" },
+        classes: "govuk-input--width-5",
+        id: "first-number",
+        name: "first-number"
+      }) }}
+
+      {{ govukButton({ text: "Continue" }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

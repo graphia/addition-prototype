@@ -1,0 +1,21 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Second number" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- we now have two numbers and can access them in the page by
+      using data['value-name'] within the curly brace and percentage symbols -->
+    {% set total = data['first-number'] + data['second-number'] %}
+
+    {{ govukPanel({ titleText: "Your total is " + total }) }}
+
+    <a href="/" class="govuk-button govuk-button--secondary">Start again</a>
+  </div>
+</div>
+
+{% endblock %}
+
